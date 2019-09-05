@@ -1,0 +1,20 @@
+<h5 class="text-center mt-4">Hello, please enter the movie name in the search field below:</h5>
+
+<form class="form-inline col-lg-12 my-3 col-offset-2">
+    <input class="form-control form-control col-10" type="text" [(ngModel)]="searchKey" name="searchKey"
+        placeholder="Search" aria-label="Search">
+    <button class="btn btn-primary col-2" [disabled]="!searchKey" for="Search"
+        (click)="onSearch(searchKey)">Search</button>
+</form>
+
+<h3 class="text-center no-results" *ngIf="!movies && !loading">No results.</h3>
+
+<div class="movie-list">
+    <div class="card movie" *ngFor="let movie of movies">
+        <img (click)="goToMovieDetails(movie.imdbID)" [src]="movie.Poster" alt="movie-poster">
+        <div class="card-body">
+            <a (click)="goToMovieDetails(movie.imdbID)" class="card-title">{{ movie.Title }} </a>
+            <h6 class="text-secondary">({{movie.Type}}, {{movie.Year}})</h6>
+        </div>
+    </div>
+</div>

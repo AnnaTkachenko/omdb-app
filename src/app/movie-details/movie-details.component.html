@@ -1,0 +1,25 @@
+<button class="btn btn-primary back-btn" (click)="goBack()"> ← Back</button>
+
+<div *ngIf="movie" class="movie-box">
+    <div class="poster-box">
+        <img [src]="movie.Poster" alt="">
+    </div>
+    <div class="description-box">
+        <h2>{{ movie.Title }} <span class="text-secondary"> {{ movie.Year }} </span> </h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">IMDb rating: <b>{{ movie.imdbRating }}</b></li>
+            <li class="list-group-item">IMDb votes: <b>{{ movie.imdbVotes }}</b></li>
+            <li class="list-group-item">Actors: <b>{{ movie.Actors }}</b></li>
+            <li class="list-group-item">Awards: <b>{{ movie.Awards }}</b></li>
+            <li class="list-group-item">Country: <b>{{ movie.Country }}</b></li>
+            <li class="list-group-item">DVD: <b>{{ movie.DVD }}</b></li>
+            <li class="list-group-item">Director: <b>{{ movie.Director }}</b></li>
+            <li class="list-group-item">Genre: <b>{{ movie.Genre }}</b></li>
+            <li class="list-group-item">Language: <b>{{ movie.Language }}</b></li>
+            <li class="list-group-item">Production: <b>{{ movie.Production }}</b></li>
+            <li class="list-group-item">Released: <b>{{ movie.Released }}</b></li>
+            <li class="list-group-item">Runtime: <b>{{ movie.Runtime }}</b></li>
+            <li class="list-group-item">Writer: <b>{{ movie.Writer }}</b></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+.movie-box {
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    >.poster-box {
+        max-width: 30%;
+        margin-right: 20px;
+        > img {
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+    >.description-box {
+        width: 70%;
+        > .list-group > li {
+            background-color: transparent;
+        }
+    }
+}
+
+.back-btn {
+    margin-top: 30px;
+}
