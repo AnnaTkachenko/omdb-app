@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { OmdbService } from '../omdb.service';
 import { Router } from '@angular/router';
+import { OmdbService } from '../services/omdb.service';
 
 export interface IMovie {
   Title: string;
@@ -14,14 +14,20 @@ export interface IMovie {
   DVD?: string;
   Director?: string;
   Genre?: string;
+  Plot?: string;
   Language?: string;
   Production?: string;
   Released?: string;
+  Rated?: string;
   Runtime?: string;
   Website?: string;
   Writer?: string;
+  Response?: string;
   imdbRating?: string;
   imdbVotes?: string;
+  BoxOffice?: string;
+  Ratings?: Array<any>;
+  Metascore?: string;
 }
 
 @Component({
@@ -39,7 +45,7 @@ export class MovieListComponent {
 
   // TODO: Implement last search result saving
   onSearch(title: string) {
-    this.omdbService.searchMovieByTitle(title).subscribe((res) => {
+    this.omdbService.searchMoviesByTitle(title).subscribe((res) => {
       return this.movies = res;
     });
   }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { IMovie } from '../movie-list/movie-list.component';
-import { OmdbService } from '../omdb.service';
+import { OmdbService } from '../services/omdb.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -23,8 +23,6 @@ export class MovieDetailsComponent implements OnInit {
     this.route.params.subscribe(params => this.movieID = params.id);
 
     this.omdbService.getMovieDetailByImdbID(this.movieID).subscribe(res => {
-      console.log(res);
-
       return this.movie = res;
     });
   }

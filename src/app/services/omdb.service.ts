@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
-import { IMovie } from './movie-list/movie-list.component';
+import { IMovie } from '../movie-list/movie-list.component';
 
-interface ISearchRes {
+
+export interface ISearchRes {
   Response: boolean;
   Search: IMovie[];
   totalResults: number;
@@ -20,7 +21,7 @@ export class OmdbService {
 
   constructor(private readonly http: HttpClient) { }
 
-  searchMovieByTitle(title: string) {
+  searchMoviesByTitle(title: string) {
     const url = 'http://www.omdbapi.com/?s=' + title + '&apikey=' + this.apiKey;
 
     return this.http.get<ISearchRes>(url).pipe(map((res) => {
